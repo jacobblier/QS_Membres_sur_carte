@@ -1,33 +1,39 @@
-# FIXME Change name to "membres_sur_carte.py"
 import configparser
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 import pandas as pd
 from PIL import Image
+import sys
 
 # Import configs
 config = configparser.ConfigParser()
-config.read(r"data/config")
-config = config["membres_sur_cartes"]
+config.read(r"donnees/config")
+config = config["membres_sur_carte"]
 
-# TODO Use the config
-# TODO Check for empty values
-if config["longitude_min_affichee_par_defaut"] == "":
-    pass
+contains_an_empty_config_value = False
+for key in config:
+    if config[key] == "":
+        contains_an_empty_config_value = True
+        print(f"`{key}` ne contient aucune valeur.")
+if contains_an_empty_config_value:
+    print("Il faut mettre une valeur dans chaque variable ci-dessus.")
+    print("*** Voir le fichier `config` dans le dossier `donnees`. ***")
+    sys.exit(1)
+
 
 # Bounding box to define default view
-# TODO Use the config
 bounding_box = (
-    (-73.6505),
-    (-73.6069),
-    (45.5225),
-    (45.5547),
+    (float(config["longitude_min_affichee_par_defaut"])),
+    (float(config["longitude_max_affichee_par_defaut"])),
+    (float(config["latitude_min_affichee_par_defaut"])),
+    (float(config["latitude_max_affichee_par_defaut"])),
 )
 
 # Read scatter data
 df = pd.read_csv(
-    r"data/adresses,latitude,longitude.csv"
-)  # TODO Use the config
+    config["chemin_du_fichier_csv_de_coordonnees"].replace(os.sep, "/")
+)
 
 # Plot
 (
@@ -35,33 +41,34 @@ df = pd.read_csv(
     ax,
 ) = plt.subplots()  # TODO This can probably be cleaner. Look for examples
 
-ax.set_title("QS membres")  # TODO Use the config
+ax.set_title(config["titre_du_graphique"])
 ax.scatter(
     df.longitude,
     df.latitude,
     zorder=1,
     alpha=1,
-    c="b",  # TODO Use the config
-    s=20,  # TODO Use the config
-    edgecolors="k",  # TODO Use the config
-    linewidths=1,  # TODO Use the config
+    c=config["couleur_des_points"],
+    s=float(config["taille_des_points"]),
+    edgecolors=config["couleur_du_contour_des_points"],
+    linewidths=float(config["largeur_du_contour_des_points"]),
 )
 ax.set_xlim(bounding_box[0], bounding_box[1])
 ax.set_ylim(bounding_box[2], bounding_box[3])
 
 # Put background street images
-for x_min in np.arange(-73.65, -73.61, 0.02):  # TODO Use the config
-    x_max = x_min + 0.02
-    for y_min in np.arange(45.52, 45.56, 0.01):  # TODO Use the config
-        y_max = y_min + 0.01
-        map_image = Image.open(
-            rf"data/carte_{x_min:.2f},{x_max:.2f},{y_min:.2f},{y_max:.2f}.png"
-        )
-        ax.imshow(
-            map_image,
-            aspect="equal",
-            extent=((x_min), (x_max), (y_min), (y_max)),
-            zorder=0,
-        )
+for coord in config["limites_geographiques_des_cartes"].splitlines():
+    if coord == "":
+        continue
+    map_image = Image.open(rf"donnees/carte_{coord}.png")
+    x_min = float(coord.split(",")[0])
+    x_max = float(coord.split(",")[1])
+    y_min = float(coord.split(",")[2])
+    y_max = float(coord.split(",")[3])
+    ax.imshow(
+        map_image,
+        aspect="equal",
+        extent=((x_min), (x_max), (y_min), (y_max)),
+        zorder=0,
+    )
 
 plt.show()
