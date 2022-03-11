@@ -6,6 +6,7 @@ cle_api_Google=
 # Exemple: villes_dans_lesquelles_chercher=
 #    montreal
 #    laval
+villes_dans_lesquelles_chercher=
 # Paire de coordonnees geographiques delimitant un rectangle dans lequel les adresses seront cherchees ("bounding box" en anglais). Vous pouvez utiliser http://bboxfinder.com pour vous aider, en prenant soin d'ajuster les coordonnes dans le format "(latitude max, longitude min), (latitude min, longitude max)".
 # Utiliser le format de l'exemple (parentheses autour des paires de coordonnees, points comme separateur decimal, virgule pour separer les paires de points et les coordonnees).
 # Exemple: limites_geographiques_ou_chercher=(45.59, -73.72), (45.53, -73.60)
@@ -17,12 +18,13 @@ chemin_du_fichier_csv_d_adresses=
 # Exemple: chemin_du_fichier_csv_de_coordonnees=donnees/adresses,latitude,longitude2.csv
 chemin_du_fichier_csv_de_coordonnees=
 # Chemin du fichier ou seront exportees les adresses non trouvees
-# chemin_du_fichier_d_erreurs=donnees/erreurs.txt
+# Exemple: chemin_du_fichier_d_erreurs=donnees/erreurs.txt
 chemin_du_fichier_d_erreurs=
 
 [membres_sur_carte]
 # Chemin du fichier csv ou sont ecrites les adresses avec les coordonnees geographiques
 # Exemple : chemin_du_fichier_csv_de_coordonnees=donnees/adresses,latitude,longitude.csv
+chemin_du_fichier_csv_de_coordonnees=
 # Limites geographiques de la vue par defaut de la carte. Vous pouvez utiliser http://bboxfinder.com pour vous aider, en prenant soin d'ajuster les coordonnes dans le format "(latitude max, longitude min), (latitude min, longitude max)".
 # Utiliser le format de l'exemple (parentheses autour des paires de coordonnees, points comme separateur decimal, virgule pour separer les paires de points et les coordonnees).
 # Exemple : limites_geographiques_a_afficher_par_defaut=(45.59, -73.72), (45.53, -73.60)
@@ -42,7 +44,7 @@ taille_des_points=
 # Exemple : couleur_du_contour_des_points=k
 couleur_du_contour_des_points=
 # Largeur de la ligne entourant chaque point representant les coordonnees geographiques
-# Exmeple :largeur_du_contour_des_points=1
+# Exemple :largeur_du_contour_des_points=1
 largeur_du_contour_des_points=
 # Limites geographiques de chaque image servant de fond a l'image generee (voir le README pour plus d'information)
 # Mettre une serie de quatre coordonnees (longitude min, longitude max, latitude min, latitude max) par ligne, avec une tabulation devant chaque serie.
