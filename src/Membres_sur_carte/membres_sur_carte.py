@@ -4,6 +4,7 @@ import numpy as np
 import os
 import pandas as pd
 from PIL import Image
+import re
 import sys
 
 # Import configs
@@ -23,11 +24,37 @@ if contains_an_empty_config_value:
 
 
 # Bounding box to define default view
+# ((longitude_min), (longitude_max), (latitude_min), (latitude_max))
+regex_pattern = re.compile("\((.*),(.*)\), *\((.*),(.*)\)")
 bounding_box = (
-    (float(config["longitude_min_affichee_par_defaut"])),
-    (float(config["longitude_max_affichee_par_defaut"])),
-    (float(config["latitude_min_affichee_par_defaut"])),
-    (float(config["latitude_max_affichee_par_defaut"])),
+    (
+        float(
+            regex_pattern.sub(
+                r"\2", config["limites_geographiques_a_afficher_par_defaut"]
+            )
+        )
+    ),
+    (
+        float(
+            regex_pattern.sub(
+                r"\4", config["limites_geographiques_a_afficher_par_defaut"]
+            )
+        )
+    ),
+    (
+        float(
+            regex_pattern.sub(
+                r"\1", config["limites_geographiques_a_afficher_par_defaut"]
+            )
+        )
+    ),
+    (
+        float(
+            regex_pattern.sub(
+                r"\3", config["limites_geographiques_a_afficher_par_defaut"]
+            )
+        )
+    ),
 )
 
 # Read scatter data
