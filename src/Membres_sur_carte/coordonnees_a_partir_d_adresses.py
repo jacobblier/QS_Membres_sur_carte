@@ -37,7 +37,7 @@ if len(cities_to_search_in) == 1:
     # Transform list of tuple into dictionary
     cities_to_search_in = {"city": cities_to_search_in[0][1]}
 
-regex_pattern = re.compile("\((.*),(.*)\); *\((.*),(.*)\)")
+regex_pattern = re.compile("\((.*),(.*)\), *\((.*),(.*)\)")
 latitude1 = float(
     regex_pattern.sub(r"\1", config["limites_geographiques_ou_chercher"])
 )
