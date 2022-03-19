@@ -15,7 +15,7 @@ limites_geographiques_ou_chercher=
 # Exemple : chemin_du_fichier_csv_d_adresses=donnees/adresses.csv
 chemin_du_fichier_csv_d_adresses=
 # Chemin du fichier csv ou seront ecrites les adresses avec les coordonnees geographiques
-# Exemple: chemin_du_fichier_csv_de_coordonnees=donnees/adresses,latitude,longitude2.csv
+# Exemple: chemin_du_fichier_csv_de_coordonnees=donnees/adresses,latitude,longitude.csv
 chemin_du_fichier_csv_de_coordonnees=
 # Chemin du fichier ou seront exportees les adresses non trouvees
 # Exemple: chemin_du_fichier_d_erreurs=donnees/erreurs.txt
