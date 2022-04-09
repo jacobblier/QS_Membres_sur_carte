@@ -131,5 +131,8 @@ dmypy.json
 # vscode stuff
 .vscode/
 
+# nvim stuff
+tags
+
 # Project specific stuff
 donnees/config
