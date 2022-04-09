@@ -1,7 +1,6 @@
 import configparser
 import csv
 import geopy
-import re
 import sys
 
 # Import configs
