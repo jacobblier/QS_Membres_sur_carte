@@ -7,10 +7,13 @@ cle_api_Google=
 #    montreal
 #    laval
 villes_dans_lesquelles_chercher=
-# Paire de coordonnees geographiques delimitant un rectangle dans lequel les adresses seront cherchees ("bounding box" en anglais). Vous pouvez utiliser http://bboxfinder.com pour vous aider, en prenant soin d'ajuster les coordonnes dans le format "(latitude max, longitude min), (latitude min, longitude max)".
-# Utiliser le format de l'exemple (parentheses autour des paires de coordonnees, points comme separateur decimal, virgule pour separer les paires de points et les coordonnees).
-# Exemple: limites_geographiques_ou_chercher=(45.59, -73.72), (45.53, -73.60)
-limites_geographiques_ou_chercher=
+# Limites geographiques dans lesquelles les adresses seront cherchees. Vous pouvez utiliser http://bboxfinder.com pour vous aider
+# Utilisez un point comme separateur decimal.
+# Exemple: latitude_min_ou_chercher=45.50
+latitude_min_ou_chercher=
+latitude_max_ou_chercher=
+longitude_min_ou_chercher=
+longitude_max_ou_chercher=
 # Chemin du fichier .csv contenant les adresses postales a chercher.
 # Exemple : chemin_du_fichier_csv_d_adresses=donnees/adresses.csv
 chemin_du_fichier_csv_d_adresses=
@@ -24,11 +27,14 @@ chemin_du_fichier_d_erreurs=
 [membres_sur_carte]
 # Chemin du fichier csv ou sont ecrites les adresses avec les coordonnees geographiques
 # Exemple : chemin_du_fichier_csv_de_coordonnees=donnees/adresses,latitude,longitude.csv
-chemin_du_fichier_csv_de_coordonnees=
-# Limites geographiques de la vue par defaut de la carte. Vous pouvez utiliser http://bboxfinder.com pour vous aider, en prenant soin d'ajuster les coordonnes dans le format "(latitude max, longitude min), (latitude min, longitude max)".
-# Utiliser le format de l'exemple (parentheses autour des paires de coordonnees, points comme separateur decimal, virgule pour separer les paires de points et les coordonnees).
-# Exemple : limites_geographiques_a_afficher_par_defaut=(45.59, -73.72), (45.53, -73.60)
-limites_geographiques_a_afficher_par_defaut=
+chemin_du_fichier_csv_de_coordonnees=donnees/adresses,latitude,longitude.csv
+# Limites geographiques de la vue par defaut de la carte. Vous pouvez utiliser http://bboxfinder.com pour vous aider.
+# Utilisez un point comme separateur decimal.
+# Exemple : longitude_max_pour_affichage_par_defaut=-73.60
+latitude_min_pour_affichage_par_defaut=
+latitude_max_pour_affichage_par_defaut=
+longitude_min_pour_affichage_par_defaut=
+longitude_max_pour_affichage_par_defaut=
 # Titre a afficher au-dessus de la carte affichee
 # Exemple : titre_du_graphique=Membres en regle de QS Laurier-Dorion
 titre_du_graphique=

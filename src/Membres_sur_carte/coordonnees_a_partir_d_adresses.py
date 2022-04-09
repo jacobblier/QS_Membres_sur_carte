@@ -37,19 +37,10 @@ if len(cities_to_search_in) == 1:
     # Transform list of tuple into dictionary
     cities_to_search_in = {"city": cities_to_search_in[0][1]}
 
-regex_pattern = re.compile("\((.*),(.*)\), *\((.*),(.*)\)")
-latitude1 = float(
-    regex_pattern.sub(r"\1", config["limites_geographiques_ou_chercher"])
-)
-longitude1 = float(
-    regex_pattern.sub(r"\2", config["limites_geographiques_ou_chercher"])
-)
-latitude2 = float(
-    regex_pattern.sub(r"\3", config["limites_geographiques_ou_chercher"])
-)
-longitude2 = float(
-    regex_pattern.sub(r"\4", config["limites_geographiques_ou_chercher"])
-)
+latitude1 = float(config["latitude_max_ou_chercher"])
+longitude1 = float(config["longitude_min_ou_chercher"])
+latitude2 = float(config["latitude_min_ou_chercher"])
+longitude2 = float(config["longitude_max_ou_chercher"])
 bounding_box_to_search_in = [(latitude1, longitude1), (latitude2, longitude2)]
 
 # Read addresses from file "addresses.csv" in "data" folder
@@ -97,9 +88,7 @@ with open(config["chemin_du_fichier_csv_de_coordonnees"], "w+") as csvfile:
                 f"{location.longitude:.7f}) qui sont a l'exterieur des limites geographiques "
                 f"specifiees. Verifiez l'adresse ou cherchez les coordonnees manuellement."
             )
-            with open(
-                config["chemin_du_fichier_d_erreurs"], "w+"
-            ) as error_file:
+            with open(config["chemin_du_fichier_d_erreurs"], "w+") as error_file:
                 print(error_text)
                 print(error_text, file=error_file)
             latitude = 0.0

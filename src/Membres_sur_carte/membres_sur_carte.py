@@ -22,45 +22,8 @@ if contains_an_empty_config_value:
     print("*** Voir le fichier `config` dans le dossier `donnees`. ***")
     sys.exit(1)
 
-
-# Bounding box to define default view
-# ((longitude_min), (longitude_max), (latitude_min), (latitude_max))
-regex_pattern = re.compile("\((.*),(.*)\), *\((.*),(.*)\)")
-bounding_box = (
-    (
-        float(
-            regex_pattern.sub(
-                r"\2", config["limites_geographiques_a_afficher_par_defaut"]
-            )
-        )
-    ),
-    (
-        float(
-            regex_pattern.sub(
-                r"\4", config["limites_geographiques_a_afficher_par_defaut"]
-            )
-        )
-    ),
-    (
-        float(
-            regex_pattern.sub(
-                r"\1", config["limites_geographiques_a_afficher_par_defaut"]
-            )
-        )
-    ),
-    (
-        float(
-            regex_pattern.sub(
-                r"\3", config["limites_geographiques_a_afficher_par_defaut"]
-            )
-        )
-    ),
-)
-
 # Read scatter data
-df = pd.read_csv(
-    config["chemin_du_fichier_csv_de_coordonnees"].replace(os.sep, "/")
-)
+df = pd.read_csv(config["chemin_du_fichier_csv_de_coordonnees"].replace(os.sep, "/"))
 
 # Plot
 (
@@ -79,8 +42,14 @@ ax.scatter(
     edgecolors=config["couleur_du_contour_des_points"],
     linewidths=float(config["largeur_du_contour_des_points"]),
 )
-ax.set_xlim(bounding_box[0], bounding_box[1])
-ax.set_ylim(bounding_box[2], bounding_box[3])
+ax.set_xlim(
+    float(config["longitude_min_pour_affichage_par_defaut"]),
+    float(config["longitude_max_pour_affichage_par_defaut"]),
+)
+ax.set_ylim(
+    float(config["latitude_min_pour_affichage_par_defaut"]),
+    float(config["latitude_max_pour_affichage_par_defaut"]),
+)
 
 # Put background street images
 for coord in config["limites_geographiques_des_cartes"].splitlines():
