@@ -49,7 +49,7 @@ La page demandera alors quelques informations de base pour finaliser la créatio
 
 ### Créer un projet
 
-Dans la page finalement ouverte, en faut à droite, cliquer sur `CRÉER UN PROJET`. Voir l'image qui suit.
+Dans la page finalement ouverte, en haut à droite, cliquer sur `CRÉER UN PROJET`. Voir l'image qui suit.
 ![Créer un projet](documentation/1-Creer_un_projet.png)
 
 Donner un nom de projet (ex : `Carte membre QS Laurier-Dorion`). Le nom n'est pas très important, tant qu'il est posible de s'en rappeler.
