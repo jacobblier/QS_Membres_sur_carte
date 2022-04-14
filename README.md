@@ -36,6 +36,8 @@ Notez que je souhaitais m'affranchir de Google pour faire ce projet, mais les al
 ## Prérequis :
   - [Python 3](https://www.python.org/downloads/)
   - Fichier contenant une liste d'adresses ([exemple provenant du répertoire](https://github.com/jacobblier/QS_Membres_sur_carte/blob/main/donnees/adresses.csv)). Ce fichier peut généralement être obtenu en demandant au National.
+  - Télécharger et dézipper le contenu de ce répertoire en cliquant sur le bouton vert `Code`, puis sur `Download ZIP` comme sur l'image ici-bas. Ne pas oublier de cliquer-droit sur le fichier téléchargé et de choisir l'option pour extraire le contenu du dossier.
+![Télécharger le code](documentation/0-Telecharger_le_code.png)
 
 ## Compte Google Developpers (À FAIRE)
 
