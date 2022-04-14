@@ -50,26 +50,27 @@ La page demandera alors quelques informations de base pour finaliser la créatio
 ### Créer un projet
 
 Dans la page finalement ouverte, en faut à droite, cliquer sur `CRÉER UN PROJET`. Voir l'image qui suit.
-![/documentation/1-Creer_un_projet.png]
+![Créer un projet](documentation/1-Creer_un_projet.png)
 
 Donner un nom de projet (ex : `Carte membre QS Laurier-Dorion`). Le nom n'est pas très important, tant qu'il est posible de s'en rappeler.
 Choisir `Aucune organisation` dans le menu déroulant nommé `Zone`.
 Cliquer sur `CRÉER`.
 
-### Choisr les API à utiliser
+### Choisir les API à utiliser
 
 Une fois le projet créé, cliquer sur les API suivantes et les activer :
   - Geocoding API
   - Maps Static API
   - Time Zone API
+
 En cliquant sur `API` dans le menu de gauche, les API activées devraient être comme sur l'image suivante suivante :
-![/documentation/2-API_activees.png]
+![API activées](documentation/2-API_activees.png)
 
 ### Générer une clé API
 
 Il faut maintenant générer et obtenir une clé API qui devra être intégrée au [fichier de configuration](/donnees/config) du code.
 Cliquer sur `Identifiants` dans le menu de gauche, puis sur `+ CRÉER DES IDENTIFIANTS` en haut et finalement sur `Clé API`, comme sur l'image qui suit :
-![/documentation/3-Creer_des_identifiants.png]
+![Créer des identifiants](documentation/3-Creer_des_identifiants.png)
 La clé API générée peut alors être copiée à la fin de la ligne `cle_api_Google=` du [fichier de configuration](/donnees/config).
 
 
@@ -88,10 +89,11 @@ Remplir les informations demandées.
 
 **Rappel** : Aucun montant ne devrait être chargé sur la carte de crédit entrée (du moins, aucun montant ne m'a été facturé à moi). Si des craintes subsistent, il est facilement possible (si ce n'est pas fait automatiquement) d'obtenir des quelques centaines de dollars de la part de Google pour faire des requête, ce qui devrait couvrir les besoin de chaque circonscription, en théorie.
 Pour voir si des crédits gratuits sont disponibles, cliquer sur le menu hamburger en gaut à gauche, puis sur `Facturation`. La vue d'ensemble affichée devrait contenir une section appelée `Crédit d'essai gratuit` où le montant est affiché.
-![/documentation/5-Credits_gratuits.png]
+![Crédits gratuits](documentation/5-Credits_gratuits.png)
 
 
 ## Mise en place de Python (À FAIRE)
+
 
 - requirements.txt
 
