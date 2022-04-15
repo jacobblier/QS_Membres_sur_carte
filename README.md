@@ -7,7 +7,7 @@ Avec une liste d'adresses, il est possible d'automatiquement trouver les coordon
 
 Ceci est fait notamment à l'aide d'un compte Google Developpers (voir [Compte Google Developpers](#compte-google-developpers) pour la marche à suivre pour en obtenir un), des scripts de ce répertoire ainsi que d'un peu d'huile de bras pour générer les cartes.
 
-Notez que je souhaitais m'affranchir de Google pour faire ce projet, mais les alternatives que j'ai essayé ne trouvaient pas les adresses correctement. Si vous connaissez quelque chose qui permettrait de trouver les coordonnées d'adresses automatiquement, merci de m'en faire part à [blier.jacob@hotmail.com](mailtomailto::blier.jacob@hotmail.com)!
+Notez que je souhaitais m'affranchir de Google pour faire ce projet, mais les alternatives que j'ai essayé ne trouvaient pas les adresses correctement. Si vous connaissez quelque chose qui permettrait de trouver les coordonnées d'adresses automatiquement, merci de  m'en faire part à l'aide d'une [*issue*](https://github.com/jacobblier/QS_Membres_sur_carte/issues) ou par courriel à [blier.jacob@hotmail.com](mailto::blier.jacob@hotmail.com)!
 
 
 # Comment installer et préparer l'exécution du programme
@@ -148,10 +148,12 @@ Il est possible de zoomer et de se déplacer sur cette carte à l'aide des bouto
 Rappel : Pour changer l'aparence des points et de la carte, les valeurs dans le fichier de configuration (`<dossier où se trouve le code>\donnees\config`) sont modifiables.
 
 
-# Add a License
+# Comment contribuer?
 
+2 options possibles :
 
-# How to Contribute to the Project
+1. Remplir une [*issue*](https://github.com/jacobblier/QS_Membres_sur_carte/issues) dans Github (en haut de la page du projet, il y a un onglet nommé `Issues`).
+2. M'écrire à [blier.jacob@hotmail.com](mailto:blier.jacob@hotmail.com)
 
 
 # Todo
