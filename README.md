@@ -1,37 +1,16 @@
-# What was your motivation?
+# QS : Afficheur de membres sur une carte
 
 
-# Why did you build this project?
-
-
-# What problem does it solve?
-
-
-# What did you learn?
-
-
-# What makes your porject stand out?
-
-
-------
-# Project's Title
-
-QS : Afficheur de membres sur une carte
-
-
-# Project Description
+# Description
 
 Avec une liste d'adresses, il est possible d'automatiquement trouver les coordonnées géographiques (latitude, longitude) de ces adresses, puis de les placer sur une carte.
 
 Ceci est fait notamment à l'aide d'un compte Google Developpers (voir [Compte Google Developpers](#compte-google-developpers) pour la marche à suivre pour en obtenir un), des scripts de ce répertoire ainsi que d'un peu d'huile de bras pour générer les cartes.
 
-Notez que je souhaitais m'affranchir de Google pour faire ce projet, mais les alternatives que j'ai essayé ne trouvaient pas les adresses correctement. Si vous connaissez quelque chose qui permettrait de trouver les coordonnées d'adresses automatiquement, merci de m'en faire part à [blier.jacob@hotmail.com](blier.jacob@hotmail.com)!
+Notez que je souhaitais m'affranchir de Google pour faire ce projet, mais les alternatives que j'ai essayé ne trouvaient pas les adresses correctement. Si vous connaissez quelque chose qui permettrait de trouver les coordonnées d'adresses automatiquement, merci de m'en faire part à [blier.jacob@hotmail.com](mailtomailto::blier.jacob@hotmail.com)!
 
 
-# Table of Contents (optional)
-
-
-# How to Install and Run the Project
+# Comment installer et préparer l'exécution du programme
 
 ## Prérequis :
   - [Python 3](https://www.python.org/downloads/)
@@ -101,7 +80,7 @@ Après avoir installé la plus récente version de Python sur l'ordinateur, il f
 Pour ce faire, aller dans le dossier où le code se trouve (par exemple, `C:\Users\<nom>\Downloads\QS_Membres_sur_carte\`). Une fois à cet endroit, cliquer dans la "barre d'adresse" en haut de la fenêtre (ou utiliser le raccourci clavier `<ctrl>+<L>`), puis entrer `cmd.exe` avant d'appuyer sur `<Enter>`. Une fenêtre contenant un peu de texte devrait s'afficher. C'est l'invite de commande, comme montré sur l'[image suivante](https://en.wikipedia.org/wiki/Cmd.exe) :
 ![Invite de commande](documentation/Invite_de_commande.png)
 
-Dans cet invite de commande, taper
+Dans cet invite de commande, entrer
 
 ```
 python -m pip install -r requirements.txt
@@ -112,15 +91,61 @@ Des écritures ainsi que des barres de progression apparaitront dans l'invite de
 Python devrait maintenant être correctement configuré pour exécuter le code.
 
 
-# How to use the Project (À FAIRE)
+# Comment utilier le code?
 
 ## Obtenir les coordonnées
 
-à faire
+La première chose à faire est de configurer les paramètres dans le fichier `config` (`<dossier où se trouve le code>/donnees/config`). Le code ne s'exécutera pas correctement sans cela.
 
-## Mettre les points sur la carte (À FAIRE)
+Lorsque la configuration est faite, aller dans le dossier où le code se trouve et ouvrir l'invite de commande comme dans la section de [mise en place de Python](#mise-en-place-de-python). Dans l'invite de commande qui s'ouvre, entrer
 
-à faire
+```
+python src\Membres_sur_carte\coordonnees_a_partir_d_adresses.py
+```
+
+Le programme passera alors à travers toutes les adresses présentes dans le fichier entré dans `chemin_du_fichier_csv_d_adresses` et sortira les coordonnées trouvées dans le fichier mis dans `chemin_du_fichier_csv_de_coordonnees` et les adresses problématiques dans `chemin_du_fichier_d_erreurs`.
+
+
+## Mettre les points sur la carte
+
+### Prérequis
+
+  - Avoir un fichier avec les coordonnées géographiques extraites à partir d'adresses
+  - Avoir rempli adéquatement le fichier de configuration (`donnees/config`)
+  - Avoir des images de la carte à afficher (voir la section [Images pour la carte](#images-pour-la-carte))
+
+### Images pour la carte
+
+Pour que les coordonnées géographiques soit placées sur une carte et non sur un fond blanc, il faut extraire des images d'une carte.
+
+Ces images doivent être placées à un endroit précis (`<dossier où se trouve le code>\donnees\`) et nommées d'une manière précise pour que le code fonctionne. Le nom des fichiers doit être dans le format suivant : `carte_<longitude minimale>,<longitude maximale>,<latitude minimale>,<latitude maximale>.png` (par exemple, `carte_-73.61,-73.59,45.55,45.56.png`).
+
+Pour obtenir ces fichiers, il existe surement plusieurs manières de faire, mais celle que j'ai utilisé est la suivante. (Je ne dis pas que c'est la meilleure, loin de là puisqu'elle demande beaucoup de travail manuel, mais je n'en ai pas trouvé d'autres.)
+  1. Aller sur [OpenStreetMap](https://www.openstreetmap.org/).
+  2. Cliquer sur le bouton `Export` en haut à gauche.
+  3. Entrer les coordonnées d'un rectangle adéquat contenant la carte qui doit être exportée. Note : Ce qui est visible à l'écran est exactement ce qui sera exporté, c'est-à-dire qu'une fois les points placés sur la carte par le programme, zoomer sur la carte ne donnera pas plus de détails que ce qui est visible maintenant.
+  4. Cliquer sur le bouton de partage, à droite de l'écran (un petit carré avec une flèche en sortant).
+  5. Cocher la case `Set custom dimensions` dans la barre qui s'est ouverte à droite.
+  6. Changer la forme du rectangle qui vient de s'afficher afin qu'il se superpose parfaitement sur le rectangle généré à l'étape 3.
+  7. Écrire le chiffre `1` dans le champ à droite de `Scale: 1 :`. Note : Ce chiffre sera automatiquement ajusté pour une autre valeur lorsque le champ ne sera plus en focus. C'est normal.
+  8. Cliquer sur `Download` et enregistrer le fichier avec le format de nom présenté plus haut et à l'emplacement demandé (`<dossier où se trouve le code>\donnees\`).
+  9. Répéter pour toutes les zones de carte nécessaires.
+
+![Procédure pour générer des cartes](documentation/Procedure_pour_generer_des_cartes.png)
+
+### Points sur la carte
+
+Pour finalement mettre les points sur la carte, aller dans le dossier où le code se trouve et ouvrir l'invite de commande comme dans la section de [mise en place de Python](#mise-en-place-de-python). Dans l'invite de commande qui s'ouvre, entrer
+
+```
+python src\Membres_sur_carte\membres_sur_carte.py
+```
+
+Quelques secondes s'écouleront (généralement, plus il y a d'images de carte, plus ce sera long) puis une nouvelle fenêtre s'ouvrira avec la carte et les points placés dessus.
+
+Il est possible de zoomer et de se déplacer sur cette carte à l'aide des boutons en bas à gauche de cette nouvelle fenêtre.
+
+Rappel : Pour changer l'aparence des points et de la carte, les valeurs dans le fichier de configuration (`<dossier où se trouve le code>\donnees\config`) sont modifiables.
 
 
 # Add a License
@@ -129,7 +154,8 @@ Python devrait maintenant être correctement configuré pour exécuter le code.
 # How to Contribute to the Project
 
 
-# Include Tests
-
-
 # Todo
+
+- Voir si un simple double-clic sur un script Python dans Windows l'exécute.
+  - Si c'est le cas, changer le README pour enlever les lignes de code dans [Obtenir les coordonnées](#obtenir-les-coordonnes) et dans [Points sur la carte](#points-sur-la-carte) pour dire de simplement double-cliquer sur les scripts.
+- Écrire des tests pour le code
