@@ -23,9 +23,9 @@ QS : Afficheur de membres sur une carte
 
 Avec une liste d'adresses, il est possible d'automatiquement trouver les coordonnées géographiques (latitude, longitude) de ces adresses, puis de les placer sur une carte.
 
-Ceci est fait notamment à l'aide d'un compte Google Developpers (voir [METTRE_LE_LIEN] pour la marche à suivre pour en obtenir un), des scripts de ce répertoire ainsi que d'un peu d'huile de bras pour générer les cartes.
+Ceci est fait notamment à l'aide d'un compte Google Developpers (voir [Compte Google Developpers](#compte-google-developpers) pour la marche à suivre pour en obtenir un), des scripts de ce répertoire ainsi que d'un peu d'huile de bras pour générer les cartes.
 
-Notez que je souhaitais m'affranchir de Google pour faire ce projet, mais les alternatives que j'ai essayé ne trouvaient pas les adresses correctement. Si vous connaissez quelque chose qui permettrait de trouver les coordonnéesd'adresses automatiquement, merci de m'en faire part [METTRE_LE_LIEN_POUR_ME_REJOINDRE]!
+Notez que je souhaitais m'affranchir de Google pour faire ce projet, mais les alternatives que j'ai essayé ne trouvaient pas les adresses correctement. Si vous connaissez quelque chose qui permettrait de trouver les coordonnées d'adresses automatiquement, merci de m'en faire part à [blier.jacob@hotmail.com](blier.jacob@hotmail.com)!
 
 
 # Table of Contents (optional)
@@ -39,7 +39,7 @@ Notez que je souhaitais m'affranchir de Google pour faire ce projet, mais les al
   - Télécharger et dézipper le contenu de ce répertoire en cliquant sur le bouton vert `Code`, puis sur `Download ZIP` comme sur l'image ici-bas. Ne pas oublier de cliquer-droit sur le fichier téléchargé et de choisir l'option pour extraire le contenu du dossier.
 ![Télécharger le code](documentation/0-Telecharger_le_code.png)
 
-## Compte Google Developpers (À FAIRE)
+## Compte Google Developpers
 
 Note : Si les coordonnées géographiques des adresses sont déjà connues, il n'est pas nécessaire d'avoir un compte Google Developpers.
 
@@ -81,7 +81,7 @@ La clé API générée peut alors être copiée à la fin de la ligne `cle_api_G
 Obtenir les coordonnées géograpiques liées à des adresses ne devrait rien couter à moins de faire plusieurs milliers de requêtes, mais il est obligatoire d'associer une carte de crédit au compte pour que les requêtes fonctionnent.
 
 En haut à gauche, cliquer sur le menu hamburger (les trois lignes horizontales une par-dessus l'autre), puis sur `Facturation`, comme sur l'image ici-bas :
-![/documentation/4-Acceder_a_facturation.png]
+![Accéder à la facturation](documentation/4-Acceder_a_facturation.png)
 
 Sur la page qui ouvre, cliquer sur `GÉRER LES COMPTES DE FACTURATION`.
 
@@ -94,10 +94,22 @@ Pour voir si des crédits gratuits sont disponibles, cliquer sur le menu hamburg
 ![Crédits gratuits](documentation/5-Credits_gratuits.png)
 
 
-## Mise en place de Python (À FAIRE)
+## Mise en place de Python
 
+Après avoir installé la plus récente version de Python sur l'ordinateur, il faut exécuter une commande pour télécharger certains modules Python.
 
-- requirements.txt
+Pour ce faire, aller dans le dossier où le code se trouve (par exemple, `C:\Users\<nom>\Downloads\QS_Membres_sur_carte\`). Une fois à cet endroit, cliquer dans la "barre d'adresse" en haut de la fenêtre (ou utiliser le raccourci clavier `<ctrl>+<L>`), puis entrer `cmd.exe` avant d'appuyer sur `<Enter>`. Une fenêtre contenant un peu de texte devrait s'afficher. C'est l'invite de commande, comme montré sur l'[image suivante](https://en.wikipedia.org/wiki/Cmd.exe) :
+![Invite de commande](documentation/Invite_de_commande.png)
+
+Dans cet invite de commande, taper
+
+```
+python -m pip install -r requirements.txt
+```
+
+Des écritures ainsi que des barres de progression apparaitront dans l'invite de commande pendant quelques minutes, le temps de télécharger les modules manquants.
+
+Python devrait maintenant être correctement configuré pour exécuter le code.
 
 
 # How to use the Project (À FAIRE)
